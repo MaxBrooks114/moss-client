@@ -1,23 +1,30 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {
-  connect
-} from 'react-redux'
-import {
-  Route,
-  Switch,
-  withRouter
-} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getCurrentUser } from "./actions/currentUser.js"
+import NavBar from './components/NavBar.js'
+import MainContainer from './components/MainContainer.js'
+
 
 class App extends React.Component {
+  componentDidMount(){
+    this.props.getCurrentUser()
+  }
   render() {
-    return ( <
-      div className = "App" >
-      "A rolling stone gathers no Moss" <
-      /div>
+    return (
+      <div className ="App">
+      <NavBar/>
+      <MainContainer/>
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(null, { getCurrentUser })(App);
