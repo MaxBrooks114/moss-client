@@ -1,3 +1,8 @@
+import { resetLogin } from './login.js'
+import { getCurrentUserConcerts } from './currentUserConcerts.js'
+
+
+
 export const setCurrentUser = user => {
   return {
     type: "SET_CURRENT_USER",
@@ -27,7 +32,9 @@ export const login = credentials => {
       if (user.error){
           alert(user.error)
       } else {
-        dispatch(setCurrentUser(user))
+        dispatch(setCurrentUser(user.data))
+        dispatch(getCurrentUserConcerts(user.data))
+        dispatch(resetLogin())
       }
       })
     .catch(console.log())
@@ -59,7 +66,8 @@ export const getCurrentUser = ( )=> {
       if (user.error){
           alert(user.error)
       } else {
-        dispatch(setCurrentUser(user))
+        dispatch(setCurrentUser(user.data))
+        dispatch(getCurrentUserConcerts(user.data))
       }
       })
     .catch(console.log())
