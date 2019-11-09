@@ -8,12 +8,15 @@ import thunk from 'redux-thunk'
 import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import login from './reducers/login'
+import currentUserConcerts from './reducers/currentUserConcerts'
 
-// just displaying different syntax options here (lines 8 and 9)
+
 const reducer = combineReducers({
     users,
     currentUser,
-    login
+    login,
+    currentUserConcerts,
+
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
