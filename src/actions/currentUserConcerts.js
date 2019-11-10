@@ -25,7 +25,7 @@ export const getCurrentUserConcerts = (user) => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(setCurrentUserConcerts(response))
+          dispatch(setCurrentUserConcerts(response.data))
         }
       })
       .catch(console.log)
