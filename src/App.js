@@ -21,21 +21,39 @@ class App extends React.Component {
     this.props.getCurrentUser()
   }
   render() {
+    const { loggedIn, userId, concerts } = this.props
     return (
-      <div className ="App">
-      <NavBar/>
-        <Route exact path='/login' component={Login}/>
-        <Route exact path='/logout' component={Logout}/>
-        <Route exact path="/users/:id/concerts" component={CurrentUserConcerts}/>
+      <div className="App">
+        { loggedIn ? <NavBar/> : <Home/> }
+        <Switch>
+          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/users/:id/concerts' component={CurrentUserConcerts}/>
+          <Route exact path='/concerts/:id' render={props => {
+              const concert = concerts.find(concert => concert.id === props.match.params.id)
+              const userId = props.userId
+              console.log(concert)
+              return <ConcertCard concert={concert} userId={userId} {...props}/>
+            }
+          }/>
+          <Route exact path='/concerts/:id/reviews/new' component={NewReviewFormWrapper}/>
+        </Switch>
+
       </div>
     );
+
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    currentUser
-  }
+const mapStateToProps = (state, ownProps) => {
+  const concerts = ownProps.location.pathname.includes("users") ? state.currentUserConcerts : state.concerts
+  const userId = state.currentUser ? state.currentUser.id : ""
+  return ({
+    loggedIn: !!state.currentUser,
+    concerts,
+    userId,
+  })
+
 }
 
-export default connect(null, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
