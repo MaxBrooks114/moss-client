@@ -3,12 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
-import NavBar from './components/NavBar.js'
-import MainContainer from './components/MainContainer.js'
-import { Route } from 'react-router-dom'
-import  Login  from './components/Login.js'
-import  Logout from './components/Logout.js'
-import  CurrentUserConcerts  from './components/CurrentUserConcerts.js'
+import NavBar from './components/NavBar'
+import Login  from './components/Login'
+import Logout from './components/Logout'
+import Signup from './components/Signup'
+import CurrentUserConcerts  from './components/CurrentUserConcerts'
+import Home from './components/Home'
+import NewReviewFormWrapper from './components/NewReviewFormWrapper'
+import ConcertCard from './components/ConcertCard.js'
+import { Route, Switch, withRouter } from 'react-router-dom'
+
 
 
 
