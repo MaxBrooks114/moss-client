@@ -6,6 +6,11 @@ export const setCurrentUserConcerts = concerts => {
   }
 }
 
+export const clearCurrentUserConcerts = () => {
+  return {
+    type: "CLEAR_CURRENT_USER_CONCERTS"
+  }
+}
 
 
 
