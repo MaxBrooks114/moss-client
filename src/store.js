@@ -8,14 +8,22 @@ import thunk from 'redux-thunk'
 import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import login from './reducers/login'
+import signup from './reducers/signup'
 import currentUserConcerts from './reducers/currentUserConcerts'
+import reviewForm from './reducers/reviewForm'
+import reviews from './reducers/reviews'
+import concerts from './reducers/concerts'
 
 
 const reducer = combineReducers({
     users,
     currentUser,
     login,
+    signup,
+    reviewForm,
+    reviews,
     currentUserConcerts,
+    concerts
 
 })
 
