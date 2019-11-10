@@ -48,6 +48,8 @@ export const login = (credentials, history) => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearCurrentUserConcerts())
+    dispatch(clearConcerts())
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
