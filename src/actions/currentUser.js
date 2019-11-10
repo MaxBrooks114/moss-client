@@ -57,6 +57,35 @@ export const logout = () => {
   }
 }
 
+export const signup = (credentials, history) => {
+  return dispatch => {
+    const userInfo = {
+      user: credentials
+    }
+    return fetch("http://localhost:3000/api/v1/signup", {
+      credentials: "include" ,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(r => r.json())
+      .then(user => {
+        if (user.error){
+            alert(user.error)
+          } else {
+            dispatch(setCurrentUser(user.data))
+            dispatch(getCurrentUserConcerts(userInfo))
+            dispatch(resetSignup())
+            dispatch(getConcerts())
+            history.push('/')
+          }
+        })
+        .catch(console.log())
+      }
+}
+
 export const getCurrentUser = ( )=> {
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/get_current_user", {
