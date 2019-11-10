@@ -103,6 +103,7 @@ export const getCurrentUser = ( )=> {
       } else {
         dispatch(setCurrentUser(user.data))
         dispatch(getCurrentUserConcerts(user.data))
+        dispatch(getConcerts())
       }
       })
     .catch(console.log())
