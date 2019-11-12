@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+
 export const setConcerts = concerts => {
   return {
     type: "SET_CONCERTS",
@@ -11,26 +14,15 @@ export const clearConcerts = () => {
   }
 }
 
+const REACT_APP_SEATGEEK_CLIENT_ID = process.env.REACT_APP_SEATGEEK_CLIENT_ID ;
+
+export const getConcerts = (query) => {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_CONCERTS' });
+    return axios.get("https://rest.bandsintown.com/artists/Kishi%20Bashi/events?app_id=73b689174c8cd3f299a050e1c75f57a5&date=past")
+      .then(concerts => {dispatch({ type: 'GET_CONCERTS', concerts })}
 
 
-
-export const getConcerts = () => {
-  return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/concerts`, {
-      credentials: "include",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    })
-      .then(r => r.json())
-      .then(response => {
-        if (response.error) {
-          alert(response.error)
-        } else {
-          dispatch(setConcerts(response.data))
-        }
-      })
-      .catch(console.log)
-  }
+    ).then(concerts => {dispatch({ type: 'ADD_REVIEWS_TO_CONCERTS', concerts})})
+  };
 }
