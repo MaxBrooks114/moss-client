@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewForm from './ReviewForm'
-import { createReview } from '../actions/review'
+import { createReview } from '../actions/reviews'
 import { connect } from 'react-redux'
 
 const NewReviewFormWrapper = ({ history, createReview }) => {
