@@ -1,17 +1,21 @@
-import React from 'react';
+import React from 'react'
+import '../navbar.css'
 import { connect } from 'react-redux'
-import Login from './Login.js'
-import Logout from './Logout.js'
+import { NavLink } from 'react-router-dom'
+import Logout from './Logout'
+import { getUserReviews, getReviews } from '../actions/reviews'
 
 
-const NavBar = ({ currentUser }) =>{
+
+
+const NavBar = ({ currentUser, loggedIn, getUserReviews, getReviews }) => {
+
   return (
     <div className="NavBar">
-      {currentUser ? <strong>Welcome, {currentUser.attributes.name}</strong> : ""}
-      <button> Login </button>
-      <button> Sign Up </button>
-      <button> Log out </button>
-
+      <NavLink exact activeClassName="active" to="/concerts" >Concerts</NavLink>
+      <NavLink exact activeClassName="active" to={"/Reviews"} onClick={()=>getReviews()}>Reviews</NavLink>
+      <NavLink exact activeClassName="active" to={`/users/${currentUser.id}/reviews`} onClick={()=>getUserReviews(currentUser)}>Your Reviews</NavLink>
+      { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
     </div>
   )
 }
@@ -19,8 +23,9 @@ const NavBar = ({ currentUser }) =>{
 
 const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser
+    currentUser,
+    loggedIn: !!currentUser
   }
 }
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps, {getUserReviews, getReviews})(NavBar)
