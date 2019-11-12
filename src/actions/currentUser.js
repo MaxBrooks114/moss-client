@@ -1,7 +1,9 @@
 import { resetLogin } from './login.js'
 import { resetSignup} from "./signup.js"
 import { getConcerts, clearConcerts } from './concerts'
+import { clearReviews, getUserReviews } from './reviews'
 import { getCurrentUserConcerts, clearCurrentUserConcerts } from './currentUserConcerts.js'
+
 
 
 
@@ -36,8 +38,8 @@ export const login = (credentials, history) => {
       } else {
         dispatch(setCurrentUser(user.data))
         dispatch(getCurrentUserConcerts(user.data))
+        dispatch(getUserReviews(user.data))
         dispatch(resetLogin())
-        dispatch(getConcerts())
         history.push('/')
       }
       })
@@ -50,6 +52,7 @@ export const logout = () => {
     dispatch(clearCurrentUser())
     dispatch(clearCurrentUserConcerts())
     dispatch(clearConcerts())
+    dispatch(clearReviews())
     return fetch("http://localhost:3000/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
@@ -77,8 +80,8 @@ export const signup = (credentials, history) => {
           } else {
             dispatch(setCurrentUser(user.data))
             dispatch(getCurrentUserConcerts(userInfo))
+            dispatch(getUserReviews(user.data))
             dispatch(resetSignup())
-            dispatch(getConcerts())
             history.push('/')
           }
         })
@@ -103,7 +106,7 @@ export const getCurrentUser = ( )=> {
       } else {
         dispatch(setCurrentUser(user.data))
         dispatch(getCurrentUserConcerts(user.data))
-        dispatch(getConcerts())
+        dispatch(getUserReviews(user.data))
       }
       })
     .catch(console.log())
