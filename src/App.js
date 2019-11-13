@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
-import { getConcerts } from './actions/concerts'
+import { getConcerts, addReviewsToConcerts } from './actions/concerts'
 import { getReviews, getUserReviews} from './actions/reviews.js'
 import NavBar from './components/NavBar'
 import Login  from './components/Login'
@@ -24,6 +24,7 @@ class App extends React.Component {
   componentDidMount(ownProps){
     this.props.getCurrentUser()
     this.props.getConcerts()
+
   }
   render() {
     const { loggedIn, userId, concerts, reviews } = this.props
@@ -78,4 +79,4 @@ const mapStateToProps = (state, ownProps) => {
 
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, getReviews, getUserReviews, getConcerts })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser, getReviews, getUserReviews, getConcerts, addReviewsToConcerts })(App));
