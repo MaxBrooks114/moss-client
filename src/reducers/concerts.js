@@ -6,6 +6,10 @@ export default (state = initialState, action) => {
       return state;
     case 'GET_CONCERTS':
       return action.concerts.data
+    case 'ADD_REVIEWS_TO_CONCERTS':
+      return action.concerts
+    case 'SAVE_CONCERT':
+      return action
     default:
       return state;
   }
