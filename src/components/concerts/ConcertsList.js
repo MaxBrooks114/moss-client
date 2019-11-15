@@ -9,9 +9,14 @@ import { saveConcert } from '../.././actions/concerts/concerts'
 
 const ConcertsList = ({concerts, saveConcert}) => {
 
+    const date = (datetime) => {
+      return new Date(datetime).toDateString()
+    }
     return (
+
       <div className = "concerts-list">
-        {concerts.sort((a, b) => (a.datetime < b.datetime) ? 1 : -1).map(c => <><Link key={c.id} to={`/concerts/${c.id}`}  onClick={()=>saveConcert(c)}>{c.lineup[0]} at {c.venue.name} on {c.datetime}</Link><br/></>)}
+
+        {concerts.sort((a, b) => (a.datetime < b.datetime) ? 1 : -1).map(c => <><Link key={c.id} to={`/concerts/${c.id}`}  onClick={()=>saveConcert(c)}>{c.lineup[0]} at {c.venue.name} on {date(c.datetime)}</Link><br/></>)}
       </div>
     )
 }
