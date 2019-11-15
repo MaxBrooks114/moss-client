@@ -6,8 +6,6 @@ export default (state = initialState, action) => {
       return action.reviews
     case "SET_USER_REVIEWS":
       return action.reviews
-    case "SET_CONCERT_REVIEWS":
-        return action.reviews
     case "ADD_REVIEW":
       return state.concat(action.review)
     case "UPDATE_REVIEW":
