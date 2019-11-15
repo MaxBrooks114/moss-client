@@ -5,7 +5,8 @@ import { withRouter} from 'react-router-dom'
 import { getUserReviews } from '../actions/reviews'
 
 
-const ReviewCard = ({ review, userId, ownProps, getUserReviews }) => {
+const ReviewCard = ({ review, currentUserId, ownProps, getUserReviews }) => {
+
 
 
   return (
@@ -19,8 +20,8 @@ const ReviewCard = ({ review, userId, ownProps, getUserReviews }) => {
         <p>Price:{review.attributes.price}</p>
         <p>{review.attributes.write_up}</p>
         <p>Final Score: {review.attributes.final_score}</p>
-        {review.attributes.user.id == userId ? <Link to={`/reviews/${review.id}/edit`}>Edit your review</Link> : ""}<br/>
-        <Link to={`/users/${review.attributes.user.id}/reviews`} onClick={()=>getUserReviews(review.attributes.user)}> See all of {review.attributes.user.username}'s reviews</Link>
+        {review.attributes.user.id == currentUserId ? <Link to={`/reviews/${review.id}/edit`}>Edit your review</Link> : ""}<br/>
+        <Link to={`/users/${review.attributes.user.id}/reviews`}> See all of {review.attributes.user.username}'s reviews</Link>
 
 
       </div> : <div> Maaaaan they ain't no review here </div>
@@ -29,9 +30,9 @@ const ReviewCard = ({ review, userId, ownProps, getUserReviews }) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const userId = state.currentUser ? state.currentUser.id : ""
+  const currentUserId = state.currentUser ? state.currentUser.id : ""
   return ({
-    userId,
+    currentUserId,
 
   })
 }

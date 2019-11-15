@@ -14,7 +14,7 @@ import EditReviewFormWrapper from './components/EditReviewFormWrapper'
 import ConcertFetcher from './components/ConcertFetcher'
 import Concerts from './components/Concerts'
 import Reviews from './components/Reviews'
-import ReviewCard from './components/ReviewCard.js'
+import ReviewContainer from './components/ReviewContainer.js'
 import ConcertSearchForm from './components/ConcertSearchForm'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
@@ -36,14 +36,8 @@ class App extends React.Component {
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/concerts' component={Concerts}/>
-          <Route exact path='/users/:id/concerts' component={CurrentUserConcerts}/>
           <Route exact path='/concerts/:id' component={ConcertFetcher}/>
-          <Route exact path='/reviews/:id' render={props => {
-              const review = reviews.find(review => review.id === props.match.params.id)
-              const userId = props.userId
-              return <ReviewCard review={review} userId={userId} {...props}/>
-            }
-          }/>
+          <Route exact path='/reviews/:id' component={ReviewContainer}/>
           <Route exact path='/concerts/:id/reviews/new' component={NewReviewFormWrapper}/>
           <Route exact path='/concerts/:id/reviews' component={Reviews}/>
           <Route exact path='/reviews/:id/edit' render={props => {
