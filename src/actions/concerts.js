@@ -1,10 +1,18 @@
 import axios from 'axios';
 import store from '../store';
+import { getConcertReviews } from './reviews'
 
 export const setConcerts = concerts => {
   return {
     type: "SET_CONCERTS",
     concerts
+  }
+}
+
+export const setConcert = concert => {
+  return {
+    type: "SET_CONCERT",
+    concert
   }
 }
 
@@ -18,14 +26,44 @@ export const clearConcerts = () => {
 
 const REACT_APP_BANDSINTOWN_APP_ID = process.env.REACT_APP_BANDSINTOWN_APP_ID ;
 
-export const getConcerts = (query) => {
-  return (dispatch) => {
-    dispatch({ type: 'LOADING_CONCERTS' });
-    return axios.get(`https://rest.bandsintown.com/artists/Kishi%20Bashi/events?app_id=${REACT_APP_BANDSINTOWN_APP_ID}&date=past`)
-      .then(concerts => {
-          dispatch({ type: 'GET_CONCERTS', concerts })
-          dispatch(addReviewsToConcerts(concerts))})
+export const getConcerts = (artist) => {
+      return (dispatch) => {
+        dispatch({ type: 'LOADING_CONCERTS' });
+        return axios.get(`https://rest.bandsintown.com/artists/${artist}/events?app_id=${REACT_APP_BANDSINTOWN_APP_ID}&date=past`)
+          .then(concerts => {
+            dispatch({ type: 'GET_CONCERTS', concerts })
+            dispatch({ type: 'SET_CONCERTS', concerts })
+            dispatch(addReviewsToConcerts(concerts))
+          })
+          .catch( err=> {
+            console.log(err.code)
+            console.log(err.message)
+            console.log(err.stack)
+          }
+          )
+        }
     }
+
+export const getConcert = (concertId) => {
+      return dispatch => {
+        return fetch(`http://localhost:3000/api/v1/concerts/${concertId}`, {
+          credentials: "include",
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        })
+          .then(r => r.json())
+          .then(response => {
+            if (response.error) {
+              alert(response.error)
+            } else {
+              console.log(response.data)
+              dispatch(setConcert(response.data))
+            }
+          })
+          .catch(console.log)
+      }
     }
 
 export const saveConcert = (concertData) => {
@@ -49,7 +87,8 @@ export const saveConcert = (concertData) => {
           if (resp.error) {
             console.log(resp.error)
           } else {
-            console.log(resp.data)
+            console.log(resp)
+
 
           }
         })
@@ -62,6 +101,6 @@ export const saveConcert = (concertData) => {
 export const addReviewsToConcerts = (concerts) => {
   return (dispatch, getState) => {
     const reviews  = store.getState().reviews
-    return concerts.data.map(concert => concert.reviews = reviews.filter(review => review.concert.id === concert.id))
+    return concerts.data.map(concert => concert.reviews = reviews.filter(review => review.attributes.concert.id == concert.id))
 }
 }
