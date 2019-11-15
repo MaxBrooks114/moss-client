@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
     concerts: state.concerts,
     reviews: state.reviews,
     concert: state.concert,
-
+    
 
 
 
