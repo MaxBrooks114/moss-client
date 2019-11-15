@@ -13,8 +13,8 @@ const NavBar = ({ currentUser, loggedIn, getUserReviews, getReviews }) => {
   return (
     <div className="NavBar">
       <NavLink exact activeClassName="active" to="/concerts" >Concerts</NavLink>
-      <NavLink exact activeClassName="active" to={"/Reviews"} onClick={()=>getReviews()}>Reviews</NavLink>
-      <NavLink exact activeClassName="active" to={`/users/${currentUser.id}/reviews`} onClick={()=>getUserReviews(currentUser)}>Your Reviews</NavLink>
+      <NavLink exact activeClassName="active" to={"/reviews"} >Reviews</NavLink>
+      <NavLink exact activeClassName="active" to={`/users/${currentUser.id}/reviews`} >Your Reviews</NavLink>
       { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
     </div>
   )
