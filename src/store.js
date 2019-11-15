@@ -13,6 +13,9 @@ import currentUserConcerts from './reducers/currentUserConcerts'
 import reviewForm from './reducers/reviewForm'
 import reviews from './reducers/reviews'
 import concerts from './reducers/concerts'
+import concert from './reducers/concert'
+import concertSearchForm from './reducers/concertSearchForm'
+import concertReviews from './reducers/concertReviews'
 
 
 const reducer = combineReducers({
@@ -23,7 +26,10 @@ const reducer = combineReducers({
     reviewForm,
     reviews,
     currentUserConcerts,
-    concerts
+    concerts,
+    concert,
+    concertSearchForm,
+    concertReviews
 
 })
 
