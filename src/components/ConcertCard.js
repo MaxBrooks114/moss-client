@@ -1,34 +1,42 @@
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import ReviewForm from './ReviewForm'
 import { connect } from 'react-redux'
-
-const ConcertCard = ({ concert, userId }) => {
-console.log(userId)
-
-  return (
-    concert ?
-      <div>
-        <h3>{concert.attributes.name}</h3>
-        <p>Date: {concert.attributes.date}</p>
-        <p>Artist: {concert.attributes.artist}</p>
-        <p>Venue: {concert.attributes.venue}</p>
-        <p>{userId}</p>
-        <p>Aggregated Score:{concert.attributes.combined_review_score}</p>
-        {!!concert.attributes.reviews.find(rev => rev.user_id == userId) ? <p>final_score</p> : <Link to={`/concerts/${concert.id}/reviews/new`}>Add a review</Link> }
+import { getConcerts, getConcert } from '../actions/concerts.js'
+import { getConcertReviews } from '../actions/reviews.js'
+import { withRouter } from 'react-router-dom'
 
 
-      </div> : <div> Maaaaan they ain't no concert here </div>
-  )
+const ConcertCard = ({concert, currentUserId}) => {
 
-}
+    return (
+      concert && concert.attributes ?
+        <div className = "ConcertCard">
+          <p>Date: {concert.attributes.date}</p>
+          <p>Artist: {concert.attributes.artist}</p>
+          <p>Venue: {concert.attributes.venue}</p>
+          <p>Aggregated Score: {concert.attributes.combined_review_score}</p>
+          <Link to ={`/concerts/${concert.id}/reviews`}> See all reviews for this concert</Link><br/>
+          {!!concert.attributes.reviews.find(review => review.user_id == currentUserId) ? <Link to ={`/reviews/${concert.attributes.reviews.find(review => review.user_id == currentUserId).id}`}>Your Review</Link> :<Link to ={`/concerts/${concert.id}/reviews/new`}> Add a Review </Link> }
+          </div> : <div> No concert </div>
+      )
 
-const mapStateToProps = state => {
-  const userId = state.currentUser ? state.currentUser.id : ""
+    }
+
+const mapStateToProps = (state, ownProps) => {
+  const currentUserId = state.currentUser ? state.currentUser.id : ""
+  const concertId = ownProps.match.params.id
   return ({
-    userId,
+    currentUserId,
+    concertId,
+    concerts: state.concerts,
+    reviews: state.reviews,
+    concert: state.concert,
+
+
+
+
   })
 }
 
 
-export default connect(mapStateToProps)(ConcertCard)
+export default withRouter(connect(mapStateToProps, {getConcerts, getConcertReviews, getConcert})(ConcertCard))
