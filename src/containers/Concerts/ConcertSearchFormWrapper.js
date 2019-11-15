@@ -1,6 +1,6 @@
 import React from 'react';
-import ConcertSearchForm from './ConcertSearchForm';
-import { getConcerts } from '../actions/concerts';
+import ConcertSearchForm from '../.././components/concerts/ConcertSearchForm';
+import { getConcerts } from '../.././actions/concerts/concerts';
 import { connect } from 'react-redux';
 
 

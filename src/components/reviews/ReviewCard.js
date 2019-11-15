@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter} from 'react-router-dom'
-import { getUserReviews } from '../actions/reviews'
+import { getUserReviews } from '../.././actions/reviews/reviews'
 
 
 const ReviewCard = ({ review, currentUserId, ownProps, getUserReviews }) => {

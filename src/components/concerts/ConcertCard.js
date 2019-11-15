@@ -1,8 +1,8 @@
-import React, {useState, useEffect } from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getConcerts, getConcert } from '../actions/concerts.js'
-import { getConcertReviews } from '../actions/reviews.js'
+import { getConcerts, getConcert } from '../.././actions/concerts/concerts.js'
+import { getConcertReviews } from '../.././actions/reviews/reviews.js'
 import { withRouter } from 'react-router-dom'
 
 
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
     concerts: state.concerts,
     reviews: state.reviews,
     concert: state.concert,
-    
+
 
 
 

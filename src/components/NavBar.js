@@ -3,7 +3,7 @@ import '../navbar.css'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
-import { getUserReviews, getReviews } from '../actions/reviews'
+import { getUserReviews, getReviews } from '../actions/reviews/reviews'
 
 
 

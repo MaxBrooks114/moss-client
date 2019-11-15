@@ -2,20 +2,16 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
-import { getConcerts, addReviewsToConcerts } from './actions/concerts'
-import { getReviews, getUserReviews} from './actions/reviews.js'
 import NavBar from './components/NavBar'
 import Login  from './components/Login'
 import Signup from './components/Signup'
-import ConcertsList from './components/ConcertsList'
 import Home from './components/Home'
-import NewReviewFormWrapper from './components/NewReviewFormWrapper'
-import EditReviewFormWrapper from './components/EditReviewFormWrapper'
-import ConcertFetcher from './components/ConcertFetcher'
-import Concerts from './components/Concerts'
-import Reviews from './components/Reviews'
-import ReviewContainer from './components/ReviewContainer.js'
-import ConcertSearchForm from './components/ConcertSearchForm'
+import NewReviewFormWrapper from './containers/Reviews/NewReviewFormWrapper'
+import EditReviewFormWrapper from './containers/Reviews/EditReviewFormWrapper'
+import ConcertFetcher from './containers/Concerts/ConcertFetcher'
+import Concerts from './containers/Concerts/Concerts'
+import Reviews from './containers/Reviews/Reviews'
+import ReviewContainer from './containers/Reviews/ReviewContainer'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 
@@ -27,7 +23,7 @@ class App extends React.Component {
 
   }
   render() {
-    const { loggedIn, userId, concerts, reviews } = this.props
+    const { loggedIn, reviews } = this.props
     return (
       <div className="App">
         { loggedIn ? <NavBar/> : <Home/> }
@@ -66,4 +62,4 @@ const mapStateToProps = (state, ownProps) => {
 
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, getReviews, getUserReviews, getConcerts, addReviewsToConcerts })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));

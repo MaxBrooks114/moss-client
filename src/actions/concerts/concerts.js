@@ -1,6 +1,5 @@
 import axios from 'axios';
-import store from '../store';
-import { getConcertReviews } from './reviews'
+import store from '../.././store';
 
 export const setConcerts = concerts => {
   return {

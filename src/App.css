@@ -1,5 +1,10 @@
 .App {
   text-align: left;
+  font: gray
+}
+
+.App a {
+  font: gray;
 }
 
 .App-logo {
@@ -18,5 +23,5 @@
 }
 
 .App-link {
-  color: #09d3ac;
+  color: gray;
 }

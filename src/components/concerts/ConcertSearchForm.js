@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { updateConcertSearchForm } from '../actions/concertSearchForm'
+import { updateConcertSearchForm } from '../.././actions/concerts/concertSearchForm'
 
 
 const ConcertSearchForm = ({ artist, updateConcertSearchForm, handleSubmit}) => {

@@ -1,5 +1,5 @@
 import { resetReviewForm } from './reviewForm'
-import { getConcerts, addReviewsToConcerts } from './concerts'
+import { getConcerts } from '../concerts/concerts'
 
 // synchronous actions
 
@@ -146,7 +146,6 @@ export const createReview = (reviewData, history) => {
         } else {
           console.log(resp.data)
           dispatch(addReview(resp.data))
-          // dispatch(getUserReviews(resp.data.attributes.user))
           dispatch(getConcerts(resp.data.attributes.concert.artist))
           dispatch(resetReviewForm())
           history.push(`/reviews/${resp.data.id}`)

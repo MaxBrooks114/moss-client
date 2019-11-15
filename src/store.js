@@ -9,11 +9,11 @@ import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import login from './reducers/login'
 import signup from './reducers/signup'
-import reviewForm from './reducers/reviewForm'
-import reviews from './reducers/reviews'
-import concerts from './reducers/concerts'
-import concert from './reducers/concert'
-import concertSearchForm from './reducers/concertSearchForm'
+import reviewForm from './reducers/reviews/reviewForm'
+import reviews from './reducers/reviews/reviews'
+import concerts from './reducers/concerts/concerts'
+import concert from './reducers/concerts/concert'
+import concertSearchForm from './reducers/concerts/concertSearchForm'
 
 
 const reducer = combineReducers({

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import ReviewsList from './ReviewsList'
-import { getReviews, getConcertReviews, getUserReviews } from '../actions/reviews'
+import ReviewsList from '../.././components/reviews/ReviewsList'
+import { getReviews, getConcertReviews, getUserReviews } from '../.././actions/reviews/reviews'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 const Reviews = ({getReviews, getUserReviews, getConcertReviews, concertId, currentUserId, userId}) => {
-  const [ reviews, setReviews ] = useState({})
+  const [ reviews ] = useState({})
   useEffect(() => {
       if (concertId){
         getConcertReviews(concertId)

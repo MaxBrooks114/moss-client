@@ -1,7 +1,7 @@
 import { resetLogin } from './login.js'
 import { resetSignup} from "./signup.js"
-import { getConcerts, clearConcerts } from './concerts'
-import { clearReviews, getUserReviews } from './reviews'
+import { clearConcerts } from './concerts/concerts'
+import { clearReviews } from './reviews/reviews'
 
 
 

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import ReviewCard from './ReviewCard'
-import { getReviews, getUserReviews, getConcertReviews } from '../actions/reviews'
+import React, { useEffect } from 'react'
+import ReviewCard from '../.././components/reviews/ReviewCard'
+import { getReviews, getUserReviews, getConcertReviews } from '../.././actions/reviews/reviews'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 const ReviewContainer = ({getReviews, reviewId, getUserReviews, getConcertReviews, concertId, reviews, currentUserId, userId}) => {
-  const [ review, setReview ] = useState({})
   useEffect(() => {
       if (concertId){
         getConcertReviews(concertId)

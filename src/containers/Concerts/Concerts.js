@@ -1,8 +1,7 @@
 
 import React from 'react';
 import ConcertSearchFormWrapper from './ConcertSearchFormWrapper';
-import ConcertsList from './ConcertsList';
-import { Route } from 'react-router-dom'
+import ConcertsList from '../.././components/concerts/ConcertsList';
 import { connect } from 'react-redux';
 
 const Concerts = (props) => {

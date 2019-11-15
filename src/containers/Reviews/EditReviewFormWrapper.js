@@ -1,7 +1,7 @@
 import React from 'react';
-import ReviewForm from './ReviewForm'
-import { updateReview, deleteReview } from '../actions/reviews'
-import { setFormDataForEdit, resetReviewForm } from '../actions/reviewForm'
+import ReviewForm from '../.././components/reviews/ReviewForm'
+import { updateReview, deleteReview } from '../.././actions/reviews/reviews'
+import { setFormDataForEdit, resetReviewForm } from '../.././actions/reviews/reviewForm'
 import { connect } from 'react-redux'
 
 class EditReviewFormWrapper extends React.Component {
