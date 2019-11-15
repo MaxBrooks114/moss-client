@@ -98,9 +98,9 @@ export const getConcertReviews = (concertId) => {
   }
 }
 
-export const getUserReviews = (user) => {
+export const getUserReviews = (userId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/users/${user.id}/reviews`, {
+    return fetch(`http://localhost:3000/api/v1/users/${userId}/reviews`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -148,7 +148,6 @@ export const createReview = (reviewData, history) => {
           dispatch(addReview(resp.data))
           // dispatch(getUserReviews(resp.data.attributes.user))
           dispatch(getConcerts(resp.data.attributes.concert.artist))
-
           dispatch(resetReviewForm())
           history.push(`/reviews/${resp.data.id}`)
 
@@ -185,7 +184,7 @@ export const updateReview = (reviewData, history) => {
           alert(resp.error)
         } else {
           dispatch(updateReviewSuccess(resp.data))
-          dispatch(getConcertReviews(resp.data.attributes.concert))
+          dispatch(getConcertReviews(resp.data.attributes.concert.id))
           dispatch(getConcerts(resp.data.attributes.concert.artist))
           dispatch(resetReviewForm())
           history.push(`/reviews/${resp.data.id}`)
