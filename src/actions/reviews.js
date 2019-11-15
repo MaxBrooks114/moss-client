@@ -1,4 +1,5 @@
 import { resetReviewForm } from './reviewForm'
+import { getConcerts, addReviewsToConcerts } from './concerts'
 
 // synchronous actions
 
@@ -76,9 +77,9 @@ export const getReviews = () => {
   }
 }
 
-export const getConcertReviews = (concert) => {
+export const getConcertReviews = (concertId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/concerts/${concert.id}/reviews`, {
+    return fetch(`http://localhost:3000/api/v1/concerts/${concertId}/reviews`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -128,7 +129,7 @@ export const createReview = (reviewData, history) => {
       price :reviewData.price,
       write_up :reviewData.write_up,
       user_id :reviewData.userId,
-      concert_id :reviewData.concertId
+      concert_id: reviewData.concertId
     }
     return fetch("http://localhost:3000/api/v1/reviews", {
       credentials: "include",
@@ -145,8 +146,9 @@ export const createReview = (reviewData, history) => {
         } else {
           console.log(resp.data)
           dispatch(addReview(resp.data))
-          dispatch(getUserReviews(resp.data.attributes.user))
-          dispatch(getConcertReviews(resp.data.attributes.concert))
+          // dispatch(getUserReviews(resp.data.attributes.user))
+          dispatch(getConcerts(resp.data.attributes.concert.artist))
+
           dispatch(resetReviewForm())
           history.push(`/reviews/${resp.data.id}`)
 
@@ -183,6 +185,9 @@ export const updateReview = (reviewData, history) => {
           alert(resp.error)
         } else {
           dispatch(updateReviewSuccess(resp.data))
+          dispatch(getConcertReviews(resp.data.attributes.concert))
+          dispatch(getConcerts(resp.data.attributes.concert.artist))
+          dispatch(resetReviewForm())
           history.push(`/reviews/${resp.data.id}`)
         }
       })
