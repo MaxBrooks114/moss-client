@@ -9,13 +9,11 @@ import users from './reducers/users'
 import currentUser from './reducers/currentUser'
 import login from './reducers/login'
 import signup from './reducers/signup'
-import currentUserConcerts from './reducers/currentUserConcerts'
 import reviewForm from './reducers/reviewForm'
 import reviews from './reducers/reviews'
 import concerts from './reducers/concerts'
 import concert from './reducers/concert'
 import concertSearchForm from './reducers/concertSearchForm'
-import concertReviews from './reducers/concertReviews'
 
 
 const reducer = combineReducers({
@@ -25,11 +23,9 @@ const reducer = combineReducers({
     signup,
     reviewForm,
     reviews,
-    currentUserConcerts,
     concerts,
     concert,
-    concertSearchForm,
-    concertReviews
+    concertSearchForm
 
 })
 
