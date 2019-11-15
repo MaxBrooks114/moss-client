@@ -37,7 +37,6 @@ export const login = (credentials, history) => {
           alert(user.error)
       } else {
         dispatch(setCurrentUser(user.data))
-        dispatch(getCurrentUserConcerts(user.data))
         dispatch(getUserReviews(user.data))
         dispatch(resetLogin())
         history.push('/')
@@ -79,7 +78,6 @@ export const signup = (credentials, history) => {
             alert(user.error)
           } else {
             dispatch(setCurrentUser(user.data))
-            dispatch(getCurrentUserConcerts(userInfo))
             dispatch(getUserReviews(user.data))
             dispatch(resetSignup())
             history.push('/')
@@ -105,7 +103,6 @@ export const getCurrentUser = ( )=> {
           alert(user.error)
       } else {
         dispatch(setCurrentUser(user.data))
-        dispatch(getCurrentUserConcerts(user.data))
         dispatch(getUserReviews(user.data))
       }
       })
