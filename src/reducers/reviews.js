@@ -4,6 +4,8 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case "SET_REVIEWS":
       return action.reviews
+    case "SET_CONCERT_REVIEWS":
+        return action.reviews
     case "SET_USER_REVIEWS":
       return action.reviews
     case "ADD_REVIEW":
