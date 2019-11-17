@@ -34,7 +34,7 @@ class EditReviewFormWrapper extends React.Component {
     const userId = review ? review.attributes.user.id : null
 
     return (
-      currentUserId === userId ?
+      currentUserId == userId ?
         <Card bg="secondary" text="black">
               <ReviewForm editMode handleSubmit={this.handleSubmit} />
               <br/>
