@@ -1,5 +1,6 @@
 import axios from 'axios';
 import store from '../.././store';
+import { resetConcertSearchForm }from './concertSearchForm'
 
 export const setConcerts = concerts => {
   return {
@@ -33,6 +34,7 @@ export const getConcerts = (artist) => {
             dispatch({ type: 'GET_CONCERTS', concerts })
             dispatch({ type: 'SET_CONCERTS', concerts })
             dispatch(addReviewsToConcerts(concerts))
+            dispatch(resetConcertSearchForm())
           })
           .catch( err=> {
             console.log(err.code)
