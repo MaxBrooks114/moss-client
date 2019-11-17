@@ -38,7 +38,7 @@ export const login = (credentials, history) => {
       } else {
         dispatch(setCurrentUser(user.data))
         dispatch(resetLogin())
-        history.push('/')
+        history.push('/about')
       }
       })
     .catch(console.log())
@@ -77,7 +77,7 @@ export const signup = (credentials, history) => {
           } else {
             dispatch(setCurrentUser(user.data))
             dispatch(resetSignup())
-            history.push('/')
+            history.push('/about')
           }
         })
         .catch(console.log())
