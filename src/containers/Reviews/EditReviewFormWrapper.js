@@ -3,6 +3,8 @@ import ReviewForm from '../.././components/reviews/ReviewForm'
 import { updateReview, deleteReview } from '../.././actions/reviews/reviews'
 import { setFormDataForEdit, resetReviewForm } from '../.././actions/reviews/reviewForm'
 import { connect } from 'react-redux'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 class EditReviewFormWrapper extends React.Component {
   componentDidMount(){
@@ -26,17 +28,28 @@ class EditReviewFormWrapper extends React.Component {
   }
 
   render() {
-    const { history, deleteReview, review } = this.props
+    const { history, deleteReview, review, currentUserId } = this.props
     const reviewId = review ? review.id : null
     const concertId = review ? review.attributes.concert.id : null
     const userId = review ? review.attributes.user.id : null
 
-    return  <>
+    return (
+      currentUserId === userId ?
+        <Card bg="secondary" text="black">
               <ReviewForm editMode handleSubmit={this.handleSubmit} />
               <br/>
-              <button onClick={()=>deleteReview(reviewId, history, concertId, userId)}>Delete this review</button>
-            </>
+              <Button variant="danger" onClick={()=>deleteReview(reviewId, history, concertId, userId)}>Delete this review</Button>
+        </Card> : <Card> <Card.Title>This is not your review to edit!</Card.Title></Card>
+    )
   }
 };
 
-export default connect(null, { updateReview, setFormDataForEdit, resetReviewForm, deleteReview })(EditReviewFormWrapper);
+const mapStateToProps = (state, ownProps) => {
+  const currentUserId = state.currentUser ? state.currentUser.id : ""
+  return ({
+    currentUserId
+  })
+}
+
+
+export default connect(mapStateToProps, { updateReview, setFormDataForEdit, resetReviewForm, deleteReview })(EditReviewFormWrapper);

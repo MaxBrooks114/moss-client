@@ -4,20 +4,35 @@ import { connect } from 'react-redux'
 import { getConcerts, getConcert } from '../.././actions/concerts/concerts.js'
 import { getConcertReviews } from '../.././actions/reviews/reviews.js'
 import { withRouter } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { LinkContainer } from 'react-router-bootstrap'
 
 
 const ConcertCard = ({concert, currentUserId}) => {
 
     return (
       concert && concert.attributes ?
-        <div className = "ConcertCard">
-          <p>Date: {concert.attributes.date}</p>
-          <p>Artist: {concert.attributes.artist}</p>
-          <p>Venue: {concert.attributes.venue}</p>
-          <p>Aggregated Score: {concert.attributes.combined_review_score}</p>
-          <Link to ={`/concerts/${concert.id}/reviews`}> See all reviews for this concert</Link><br/>
-          {!!concert.attributes.reviews.find(review => review.user_id == currentUserId) ? <Link to ={`/reviews/${concert.attributes.reviews.find(review => review.user_id == currentUserId).id}`}>Your Review</Link> :<Link to ={`/concerts/${concert.id}/reviews/new`}> Add a Review </Link> }
-          </div> : <div> No concert </div>
+          <Card bg="secondary" text="black">
+            <Card.Body>
+              <Card.Text>Date: {concert.attributes.date}</Card.Text>
+              <Card.Text>Artist: {concert.attributes.artist}</Card.Text>
+              <Card.Text>Venue: {concert.attributes.venue}</Card.Text>
+              <Card.Text>Aggregated Score: {concert.attributes.combined_review_score}</Card.Text>
+              <LinkContainer to={`/concerts/${concert.id}/reviews`} >
+                <Button variant="success">See all reviews for this concert</Button>
+              </LinkContainer>
+              {!!concert.attributes.reviews.find(review => review.user_id == currentUserId) ?
+                <LinkContainer to ={`/reviews/${concert.attributes.reviews.find(review => review.user_id == currentUserId).id}`}>
+                    <Button variant="success">Your Review</Button>
+                </LinkContainer> :
+                <LinkContainer to ={`/concerts/${concert.id}/reviews/new`}>
+                 <Button variant="success">Add a Review</Button>
+                </LinkContainer> }
+            </Card.Body>
+          </Card>
+          : <Card bg="secondary" text="black"> Concert not found </Card>
+
       )
 
     }

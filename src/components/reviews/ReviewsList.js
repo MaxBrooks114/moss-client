@@ -2,26 +2,46 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 
 
-const Reviews = props => {
+const ReviewsList = ({reviews}) => {
 
-  const reviewCards = props.reviews.length > 0 ?
-    props.reviews.map(r => <><Link key={r.id} to={`/reviews/${r.id}`}>{r.attributes.concert.name} by {r.attributes.user.username}</Link><br/></>)  : <p>You have no reviews!</p>
-
-  return reviewCards
+  const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
 }
+
+  return (
+
+      <div className ='row'>
+      {reviews.map(r =>
+        <Card key={r.id} className="col-md-3" text="black">
+          <Card.Body>
+            <Card.Title>{capitalize(r.attributes.user.username)}'s review of {r.attributes.concert.name}</Card.Title>
+            <Card.Text>Final Score: {r.attributes.final_score}</Card.Text>
+            <LinkContainer to={`/reviews/${r.id}`}>
+              <Button variant="success">See This Review</Button>
+            </LinkContainer>
+          </Card.Body>
+        </Card>)}
+  </div>
+ )
+}
+
 
 
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    
+
     reviews: state.reviews
 
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Reviews))
+export default withRouter(connect(mapStateToProps)(ReviewsList))

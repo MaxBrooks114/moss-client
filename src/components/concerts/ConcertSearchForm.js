@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { updateConcertSearchForm } from '../.././actions/concerts/concertSearchForm'
+import Button from 'react-bootstrap/Button'
 
 
 const ConcertSearchForm = ({ artist, updateConcertSearchForm, handleSubmit}) => {
@@ -17,8 +18,8 @@ const ConcertSearchForm = ({ artist, updateConcertSearchForm, handleSubmit}) => 
       event.preventDefault()
       handleSubmit(artist)
     }}>
-      <input className='form-control' placeholder="Artist" type="text" name="artist" value={ artist } onChange={ handleChange }/>
-      <button className="search-button" type="submit">Search Concerts</button>
+      <input className='form-control' placeholder="Enter an artist here to see their past concerts" type="text" name="artist" value={ artist } onChange={ handleChange }/>
+      <Button variant="success" className="search-button" type="submit">Search Concerts</Button>
     </form>
   )
 }

@@ -3,14 +3,44 @@ import React from 'react';
 import ConcertSearchFormWrapper from './ConcertSearchFormWrapper';
 import ConcertsList from '../.././components/concerts/ConcertsList';
 import { connect } from 'react-redux';
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
 
-const Concerts = (props) => {
+const Concerts = ({concerts, isLoading, artist}) => {
     return (
-      <div className="concerts-container">
+      <Container className="concerts-container">
         <ConcertSearchFormWrapper />
-        { (props.concerts.length > 0 && props.concerts !== '\n{warn=Not found}\n') ? <ConcertsList /> : null }
-      </div>
+        {isLoading  ?
+          <Button variant="secondary" disabled>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+                  />
+              Loading...
+            </Button>
+           :
+           ((concerts.length > 0 && concerts !== '\n{warn=Not found}\n') ? <ConcertsList concerts={concerts}/> : null)}
+
+      </Container>
     )
 };
 
-export default connect((state) => ({ concerts: state.concerts })) (Concerts);
+
+
+const mapStateToProps = (state) => {
+
+  return {
+
+      concerts: state.concerts.concerts,
+      isLoading: state.concerts.isLoading,
+      artist: state.concertSearchForm.artist
+
+  }
+}
+
+export default connect(mapStateToProps)(Concerts);

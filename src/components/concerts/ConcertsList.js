@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import { saveConcert } from '../.././actions/concerts/concerts'
-
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 
@@ -14,21 +16,25 @@ const ConcertsList = ({concerts, saveConcert}) => {
     }
     return (
 
-      <div className = "concerts-list">
+            <div className ='row'>
+              {concerts.sort((a, b) => (a.datetime < b.datetime) ? 1 : -1).map(
+                c =>
+                  <Card key={c.id} className="col-md-3" text="black">
+                    <Card.Body>
+                      <Card.Title>{c.lineup[0]} @ {c.venue.name} on {date(c.datetime)}</Card.Title>
+                      <LinkContainer to={`/concerts/${c.id}`} onClick={()=>saveConcert(c)}>
+                        <Button variant="success">See This Concert</Button>
+                      </LinkContainer>
+                    </Card.Body>
+                  </Card>)}
+              </div>
 
-        {concerts.sort((a, b) => (a.datetime < b.datetime) ? 1 : -1).map(c => <><Link key={c.id} to={`/concerts/${c.id}`}  onClick={()=>saveConcert(c)}>{c.lineup[0]} at {c.venue.name} on {date(c.datetime)}</Link><br/></>)}
-      </div>
+
+
     )
 }
 
 
 
-const mapStateToProps = (state, ownProps) => {
-  return {
 
-      concerts: state.concerts
-
-  }
-}
-
-export default withRouter(connect(mapStateToProps, {saveConcert})(ConcertsList))
+export default withRouter(connect(null, {saveConcert})(ConcertsList))

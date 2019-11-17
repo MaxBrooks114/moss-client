@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewForm from '../.././components/reviews/ReviewForm'
 import { createReview } from '../.././actions/reviews/reviews'
 import { connect } from 'react-redux'
+import Card from 'react-bootstrap/Card'
 
 const NewReviewFormWrapper = ({ history, createReview }) => {
 
@@ -11,7 +12,12 @@ const NewReviewFormWrapper = ({ history, createReview }) => {
       userId, concertId
     }, history)
   }
-  return  <ReviewForm history={history} handleSubmit={handleSubmit} />
+  return (
+      <Card bg="secondary" text="black">
+        <ReviewForm history={history} handleSubmit={handleSubmit} />
+      </Card>
+
+    )
 };
 
 export default connect(null, { createReview })(NewReviewFormWrapper);

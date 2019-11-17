@@ -3,6 +3,7 @@ import ReviewsList from '../.././components/reviews/ReviewsList'
 import { getReviews, getConcertReviews, getUserReviews } from '../.././actions/reviews/reviews'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
 
 const Reviews = ({getReviews, getUserReviews, getConcertReviews, concertId, currentUserId, userId}) => {
   const [ reviews ] = useState({})
@@ -15,7 +16,11 @@ const Reviews = ({getReviews, getUserReviews, getConcertReviews, concertId, curr
         getReviews()
       }
     }, [concertId, getConcertReviews, getReviews, getUserReviews, userId])
-    return <ReviewsList reviews={reviews} />
+    return (
+      <Container className="reviews-container">
+        <ReviewsList reviews={reviews} />
+      </Container>
+    )
 }
 
 

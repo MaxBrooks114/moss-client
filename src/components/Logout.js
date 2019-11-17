@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { logout } from "../actions/currentUser.js"
 import { withRouter } from 'react-router-dom'
-
+import Button from 'react-bootstrap/Button'
 
 const Logout = ({ logout, history }) => {
 return (
@@ -13,7 +13,7 @@ return (
       history.push('/')
     }
   }>
-    <input type="submit" value="Log Out"/>
+    <Button variant="danger" type="submit">Log Out</Button>
   </form>
 )
 }

@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateReviewForm } from '../.././actions/reviews/reviewForm'
 import { withRouter } from 'react-router-dom'
-
+import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+import Button from 'react-bootstrap/Button'
 
 
 const ReviewForm = ({ formData, updateReviewForm, userId, concertId, review, handleSubmit, editMode}) => {
@@ -15,69 +17,69 @@ const ReviewForm = ({ formData, updateReviewForm, userId, concertId, review, han
   }
 
   return (
-    <form onSubmit={event => {
+    <Form onSubmit={event => {
       event.preventDefault()
       handleSubmit(formData, userId, concertId)
     }}>
-      <label>
+      <Form.Label>
         Rate the Performance:
-        <select value={performance_score} name="performance_score" onChange={handleChange} >
+        <Form.Control as="select" value={performance_score} name="performance_score" onChange={handleChange} >
           <option value=""> 0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-       </select>
-      </label>
-      <label>
+       </Form.Control>
+      </Form.Label><br/>
+      <Form.Label>
         Rate the Venue:
-        <select value={venue_score} name="venue_score" onChange={handleChange} >
+        <Form.Control as="select" value={venue_score} name="venue_score" onChange={handleChange} >
           <option value=""> 0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-       </select>
-      </label>
-      <label>
+       </Form.Control>
+      </Form.Label><br/>
+      <Form.Label>
         Rate the Set:
-        <select value={set_score} name="set_score" onChange={handleChange} >
+        <Form.Control as="select" value={set_score} name="set_score" onChange={handleChange} >
           <option value=""> 0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-       </select>
-      </label>
-      <label>
+       </Form.Control>
+      </Form.Label><br/>
+      <Form.Label>
         Rate the Sound:
-        <select value={sound_score} name="sound_score" onChange={handleChange} >
+        <Form.Control as="select" value={sound_score} name="sound_score" onChange={handleChange} >
           <option value=""> 0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
-       </select>
-      </label>
-      <label>
+       </Form.Control>
+      </Form.Label><br/>
+      <Form.Label>
         Rate the Price:
-        <select value={price} name="price" onChange={handleChange} >
+        <Form.Control as="select" value={price} name="price" onChange={handleChange} >
           <option value=""> </option>
           <option value="free">Free</option>
           <option value="$">$</option>
           <option value="$$">$$</option>
           <option value="$$$">$$$</option>
           <option value="$$$$">$$$$</option>
-       </select>
-      </label>
-      <input placeholder="Write something about your experience!" type = "textarea" value={write_up} name="write_up" onChange={handleChange} />
+       </Form.Control>
+      </Form.Label><br/>
+      <textarea placeholder="Write something about your experience!" value={write_up} name="write_up" onChange={handleChange} /><br/>
 
-      <input type ="submit" value={editMode ? "Update Review" : "Create Review" }/>
-    </form>
+      <Button type ="submit" >{editMode ? "Update Review" : "Create Review" }</Button>
+    </Form>
   )
 }
 

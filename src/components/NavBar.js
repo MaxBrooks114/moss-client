@@ -1,8 +1,11 @@
 import React from 'react'
-import '../navbar.css'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
+import {Nav }from 'react-bootstrap'
+import {Navbar} from 'react-bootstrap';
+import Button from 'react-bootstrap/Button'
+import { LinkContainer } from 'react-router-bootstrap';
+
 import { getUserReviews, getReviews } from '../actions/reviews/reviews'
 
 
@@ -11,12 +14,33 @@ import { getUserReviews, getReviews } from '../actions/reviews/reviews'
 const NavBar = ({ currentUser, loggedIn, getUserReviews, getReviews }) => {
 
   return (
-    <div className="NavBar">
-      <NavLink exact activeClassName="active" to="/concerts" >Concerts</NavLink>
-      <NavLink exact activeClassName="active" to={"/reviews"} >Reviews</NavLink>
-      <NavLink exact activeClassName="active" to={`/users/${currentUser.id}/reviews`} >Your Reviews</NavLink>
-      { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
-    </div>
+    <>
+      <Navbar sticky="top" bg="dark" >
+        <Navbar.Brand>
+         <h1>
+          <LinkContainer to={'/about'}>
+            <Button variant="success">
+                Moss
+            </Button>
+          </LinkContainer>
+         </h1>
+          </Navbar.Brand>
+          <Nav className="mr-auto" variant="pills">
+              <LinkContainer exact activeClassName="active"  to="/concerts">
+                <Nav.Link>Concerts</Nav.Link>
+              </LinkContainer>
+              <LinkContainer exact activeClassName="active" to="/reviews" >
+                <Nav.Link >Reviews</Nav.Link>
+              </LinkContainer>
+              <LinkContainer exact activeClassName="active" to={`/users/${currentUser.id}/reviews`} >
+                <Nav.Link>Your Reviews</Nav.Link>
+               </LinkContainer>
+          </Nav>
+          <Nav >
+            { loggedIn ? <><Logout/></> : null}
+          </Nav>
+      </Navbar>
+    </>
   )
 }
 
