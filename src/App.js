@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import Login  from './components/Login'
 import Signup from './components/Signup'
 import Home from './components/Home'
+import About from './components/About'
 import NewReviewFormWrapper from './containers/Reviews/NewReviewFormWrapper'
 import EditReviewFormWrapper from './containers/Reviews/EditReviewFormWrapper'
 import ConcertFetcher from './containers/Concerts/ConcertFetcher'
@@ -29,6 +30,7 @@ class App extends React.Component {
         { loggedIn ? <NavBar/> : <Home/> }
 
         <Switch>
+          <Route exact path='/about' component={About}/>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/concerts' component={Concerts}/>
