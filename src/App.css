@@ -1,6 +1,7 @@
 .App {
   text-align: left;
-  font: gray
+  font: gray;
+
 }
 
 .App a {
@@ -24,4 +25,13 @@
 
 .App-link {
   color: gray;
+}
+
+.nav-pills .nav-link.active {
+    color:green;
+    background-color:#addfad;
+    }
+
+div.col-md-3.card.text-black {
+  background-color:#addfad;
 }
