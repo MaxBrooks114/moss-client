@@ -14,9 +14,11 @@ export default (state = initialState, action) => {
              isLoading: false };
  case 'ADD_REVIEWS_TO_CONCERTS':
       return action.concerts
-  case 'SAVE_CONCERT':
+case 'SAVE_CONCERT':
       return action
-    default:
+case "CLEAR_REVIEWS":
+        return initialState
+  default:
       return state;
   }
 }
