@@ -23,7 +23,7 @@ export const clearCurrentUser = user => {
 
 export const login = (credentials, history) => {
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/login", {
+    return fetch("https://moss-backend.herokuapp.com/api/v1/login", {
     credentials: "include" ,
     method: "POST",
     headers: {
@@ -50,7 +50,7 @@ export const logout = () => {
     dispatch(clearCurrentUser())
     dispatch(clearConcerts())
     dispatch(clearReviews())
-    return fetch("http://localhost:3000/api/v1/logout", {
+    return fetch("https://moss-backend.herokuapp.com/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
     })
@@ -62,7 +62,7 @@ export const signup = (credentials, history) => {
     const userInfo = {
       user: credentials
     }
-    return fetch("http://localhost:3000/api/v1/signup", {
+    return fetch("https://moss-backend.herokuapp.com/api/v1/signup", {
       credentials: "include" ,
       method: "POST",
       headers: {
@@ -86,7 +86,7 @@ export const signup = (credentials, history) => {
 
 export const getCurrentUser = ( )=> {
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/get_current_user", {
+    return fetch("https://moss-backend.herokuapp.com/api/v1/get_current_user", {
     credentials: "include",
     method: "GET",
     headers: {

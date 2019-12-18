@@ -47,7 +47,7 @@ export const getConcerts = (artist) => {
 
 export const getConcert = (concertId) => {
       return dispatch => {
-        return fetch(`http://localhost:3000/api/v1/concerts/${concertId}`, {
+        return fetch(`https://moss-backend.herokuapp.com/api/v1/concerts/${concertId}`, {
           credentials: "include",
           method: "GET",
           headers: {
@@ -75,7 +75,7 @@ export const saveConcert = (concertData) => {
         date: concertData.datetime,
         concert_api_id: parseInt(concertData.id, 10)
       }
-      return fetch("http://localhost:3000/api/v1/concerts", {
+      return fetch("https://moss-backend.herokuapp.com/api/v1/concerts", {
         credentials: "include",
         method: "POST",
         headers: {

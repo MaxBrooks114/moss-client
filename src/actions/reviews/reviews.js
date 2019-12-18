@@ -58,7 +58,7 @@ export const updateReviewSuccess = review => {
 
 export const getReviews = () => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/reviews`, {
+    return fetch(`https://moss-backend.herokuapp.com/api/v1/reviews`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -79,7 +79,7 @@ export const getReviews = () => {
 
 export const getConcertReviews = (concertId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/concerts/${concertId}/reviews`, {
+    return fetch(`https://moss-backend.herokuapp.com/api/v1/concerts/${concertId}/reviews`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -100,7 +100,7 @@ export const getConcertReviews = (concertId) => {
 
 export const getUserReviews = (userId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/users/${userId}/reviews`, {
+    return fetch(`https://moss-backend.herokuapp.com/api/v1/users/${userId}/reviews`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -131,7 +131,7 @@ export const createReview = (reviewData, history) => {
       user_id :reviewData.userId,
       concert_id: reviewData.concertId
     }
-    return fetch("http://localhost:3000/api/v1/reviews", {
+    return fetch("https://moss-backend.herokuapp.com/api/v1/reviews", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -169,7 +169,7 @@ export const updateReview = (reviewData, history) => {
       user_id :reviewData.userId,
       concert_id :reviewData.concertId
     }
-    return fetch(`http://localhost:3000/api/v1/reviews/${reviewData.reviewId}`, {
+    return fetch(`https://moss-backend.herokuapp.com/api/v1/reviews/${reviewData.reviewId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -196,7 +196,7 @@ export const updateReview = (reviewData, history) => {
 
 export const deleteReview = (reviewId, history, concertId, userId) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/reviews/${reviewId}`, {
+    return fetch(`https://moss-backend.herokuapp.com/api/v1/reviews/${reviewId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
