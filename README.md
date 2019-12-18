@@ -1,15 +1,15 @@
-#Moss
+# Moss
 Moss is a React app that uses The bandsintown API to find concerts that fans have been to review. Think yelp for concerts.
 ---
-Use it:
+## Use it:
 https://moss.herokuapp.com/
 
-##Features
+## Features
 Search bands by name and see a list of all their concerts in the US and Canada as far back as 2013
 
 ---
 
-##Technologies and Resources
+## Technologies and Resources
 Front-end: JavaScript libraries (React, Redux)
 Bootstrap
 Axios
@@ -19,13 +19,13 @@ Back-end: Ruby on Rails
 BandsinTown API
 
 ---
-##Author
+## Author
 Max Brooks
 
 ---
-Contributing
+## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/MaxBrooks114/moss-client This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ---
-License
+## License
 All software is available as open source under the terms of the MIT License.
