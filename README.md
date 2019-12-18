@@ -5,8 +5,12 @@ Moss is a React app that uses The bandsintown API to find concerts that fans hav
 https://moss.herokuapp.com/
 
 ## Features
+<<<<<<< HEAD
 Search bands by name and see a list of all their concerts in the US and Canada as far back as 2013.
 see how people thought the concert, add a review of your own and see all your, or another user's, reviews
+=======
+Search bands by name and see a list of all their concerts in the US and Canada as far back as 2013
+>>>>>>> c7cb520068a247e516b3e8c298a4a57e3566e75d
 
 ---
 
