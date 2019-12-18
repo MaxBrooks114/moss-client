@@ -10,13 +10,15 @@ Search bands by name and see a list of all their concerts in the US and Canada a
 ---
 
 ## Technologies and Resources
-Front-end: JavaScript libraries (React, Redux)
-Bootstrap
-Axios
-Redux Thunk middleware
+### Front-end:
+⋅⋅* JavaScript libraries (React, Redux)
+⋅⋅* Bootstrap
+⋅⋅* Axios
+⋅⋅* Redux Thunk middleware
 
-Back-end: Ruby on Rails
-BandsinTown API
+### Back-end:
+⋅⋅* Ruby on Rails
+⋅⋅* BandsinTown API
 
 ---
 ## Author
