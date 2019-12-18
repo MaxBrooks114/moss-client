@@ -1,11 +1,31 @@
-A rolling stone gathers no Moss
-Moss is a web application that seeks to answer one question: Is this band good live? Using crowd sourced reviews and the BandsinTown API, we can start to build a database of reviews to uncover trends about bands, and venues. The simple review system just asks for 5 metrics:
+#Moss
+Moss is a React app that uses The bandsintown API to find concerts that fans have been to review. Think yelp for concerts.
+---
+Use it:
+https://moss.herokuapp.com/
 
-The performance: how was the show overall?
-The set: did they play your favorite songs?
-The sound: Were you able to hear them? Were they clear? Was it too loud?
-The venue: Did you enjoy the venue? The atmosphere?
-Feel free to compose your own written review as well!
-Once you answer these questions Moss will then spit out an overall final score for your review, as well as add your review to the review database. This enables Moss to give concerts an aggregated score based on all the reviews for that concert!
+##Features
+Search bands by name and see a list of all their concerts in the US and Canada as far back as 2013
 
-Enjoy gathering Moss
+---
+
+##Technologies and Resources
+Front-end: JavaScript libraries (React, Redux)
+Bootstrap
+Axios
+Redux Thunk middleware
+
+Back-end: Ruby on Rails
+BandsinTown API
+
+---
+##Author
+Max Brooks
+
+---
+Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/MaxBrooks114/moss-client This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+---
+License
+All software is available as open source under the terms of the MIT License.
