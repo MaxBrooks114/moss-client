@@ -1,12 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Jumbotron  from 'react-bootstrap/Jumbotron';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Home = () => (
   <Jumbotron>
-    <h1>A rolling stone gathers no Moss</h1>
-    <span>
-      <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link>
+    <Badge className="logo">
+       Moss
+    </Badge>
+    <h2>A Rolling Stone Gathers No Moss.</h2>
+    <span className="linkcontainer">
+      <LinkContainer to="/signup">
+          <Button>Sign Up</Button>
+      </LinkContainer> or
+      <LinkContainer to="/login">
+          <Button>Log in</Button>
+      </LinkContainer>
     </span>
   </Jumbotron>
 );
