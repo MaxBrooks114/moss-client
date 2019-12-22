@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLogin } from '../actions/login.js'
 import { login } from '../actions/currentUser.js'
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 const Login = ({ loginData, updateLogin, login, history }) => {
 
@@ -19,11 +20,13 @@ const Login = ({ loginData, updateLogin, login, history }) => {
     login(loginData, history)
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <input placeholder="username" value={loginData.username} name="username" type="text" onChange={handleChange}/>
-      <input placeholder="password" value={loginData.password} name="password" type="password" onChange={handleChange}/>
-      <input type ="submit" value = "Log In"/>
-    </form>
+    <Jumbotron>
+      <form onSubmit={handleSubmit}>
+        <input placeholder="username" value={loginData.username} name="username" type="text" onChange={handleChange}/>
+        <input placeholder="password" value={loginData.password} name="password" type="password" onChange={handleChange}/>
+        <input type ="submit" value = "Log In"/>
+      </form>
+    </Jumbotron>
   )
 }
 
