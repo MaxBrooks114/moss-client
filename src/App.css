@@ -13,7 +13,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #272C2F;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,4 +34,61 @@
 
 div.col-md-3.card.text-black {
   background-color:#addfad;
+}
+
+.jumbotron {
+  background: black;
+  color: white;
+  position: relative;
+  padding: 7rem;
+
+
+}
+.jumbotron .badge {
+  position: absolute;
+  top:1rem;
+  left: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #0E2F09;
+  font-size: 2rem;
+  color: #92E054;
+  box-shadow: 2px 2px 2px 2px rgba(149,164,177,0.2);
+}
+
+
+.jumbotron h2 {
+  position: absolute;
+  top: 108px;
+  left: 1rem;
+  color: #B5BFD3;
+}
+
+.linkcontainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+
+
+}
+
+
+.btn,
+.jumbotron a.active.btn.btn-primary,
+.btn:active,
+.jumbotron a.active.btn.btn-primary:active{
+  background-color: #47981F;
+  color: #B5BFD3;
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+.btn:hover,
+.jumbotron a.active.btn.btn-primary:hover {
+  background-color: #B5BFD3 ;
+  font-weight: bold;
+  color: #47981F;
 }
