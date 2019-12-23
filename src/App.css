@@ -1,6 +1,11 @@
+html {
+  font: 'Baloo Bhai';
+}
+
+
 .App {
   text-align: left;
-  font: gray;
+  font: 'Baloo Bhai';
 
 }
 
@@ -24,16 +29,74 @@
 }
 
 .App-link {
-  color: gray;
+  color: white;
+}
+
+
+div .mr-auto .navbar-nav .navpills a.nav-link {
+  color: white;
+}
+
+.nav-pill {
+  color: white;
 }
 
 .nav-pills .nav-link.active {
-    color:green;
-    background-color:#addfad;
+
+    background-color:#47981F;
+    color: white;
+    }
+
+#root > div > nav > div.mr-auto.navbar-nav.nav-pills > a {
+  color: white;
+}
+
+#root > div > nav > div.mr-auto.navbar-nav.nav-pills > a:hover {
+  background: #47981F;
+  opacity: .5;
+}
+div .row {
+      text-align: left;
+
+      justify-content: space-evenly;
+      position: relative;
+      top: 4rem;
+      border-radius: .25rem;
+
     }
 
 div.col-md-3.card.text-black {
-  background-color:#addfad;
+  background-color:#1C4F06;
+  color:white;
+  margin: 1rem;
+  box-shadow: 2px 2px 2px 2px rgba(149,164,177,0.2);
+
+
+}
+
+.search__form {
+  position: relative;
+}
+
+
+#root > div > div > form > button {
+  position: absolute;
+  left: 0;
+  margin:0 1rem 0 0;
+
+}
+
+#root > div > div > button {
+  position: relative;
+  left: 143px;
+  bottom: 1rem;
+}
+
+#root > div > div > button > span {
+  position: absolute;
+  top: .5rem;
+  margin-right: 2rem;
+  left: 0;
 }
 
 .jumbotron {
@@ -84,6 +147,7 @@ div.col-md-3.card.text-black {
   background-color: #47981F;
   color: #B5BFD3;
   margin: 1rem 1rem 1rem 1rem;
+  border-color: #47981F;
 }
 
 .btn:hover,
