@@ -14,7 +14,7 @@ const ConcertSearchForm = ({ artist, updateConcertSearchForm, handleSubmit}) => 
   }
 
   return (
-    <form onSubmit={event => {
+    <form className="form search__form" onSubmit={event => {
       event.preventDefault()
       handleSubmit(artist)
     }}>
