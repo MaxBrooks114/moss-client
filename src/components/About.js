@@ -1,5 +1,7 @@
 import React from 'react'
 import Jumbotron  from 'react-bootstrap/Jumbotron';
+import Button from 'react-bootstrap/Button';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const About = () => (
   <Jumbotron>
@@ -14,6 +16,9 @@ const About = () => (
       </ol>
     <p> Once you answer these questions Moss will then spit out an overall final score for your review, as well as add your review to the review database. This enables Moss to give concerts an aggregated score based on all the reviews for that concert!</p>
     <strong>Enjoy gathering Moss</strong>
+    <LinkContainer to="/concerts">
+      <Button> Search Concerts </Button>
+    </LinkContainer>
   </Jumbotron>
 );
 
