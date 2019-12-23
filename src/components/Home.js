@@ -10,7 +10,6 @@ const Home = () => (
     <Badge className="logo">
        Moss
     </Badge>
-    <h2>A Rolling Stone Gathers No Moss.</h2>
     <span className="linkcontainer">
       <LinkContainer to="/signup">
           <Button>Sign Up</Button>
