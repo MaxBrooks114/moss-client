@@ -21,7 +21,7 @@ const Login = ({ loginData, updateLogin, login, history }) => {
   }
   return (
     <Jumbotron>
-      <form onSubmit={handleSubmit}>
+      <form className="form form__login" onSubmit={handleSubmit}>
         <input placeholder="username" value={loginData.username} name="username" type="text" onChange={handleChange}/>
         <input placeholder="password" value={loginData.password} name="password" type="password" onChange={handleChange}/>
         <input type ="submit" value = "Log In"/>
