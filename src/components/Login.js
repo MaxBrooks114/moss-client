@@ -4,6 +4,7 @@ import { updateLogin } from '../actions/login.js'
 import { login } from '../actions/currentUser.js'
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
+
 const Login = ({ loginData, updateLogin, login, history }) => {
 
   const handleChange = event => {
@@ -22,9 +23,9 @@ const Login = ({ loginData, updateLogin, login, history }) => {
   return (
     <Jumbotron>
       <form className="form form__login" onSubmit={handleSubmit}>
-        <input placeholder="username" value={loginData.username} name="username" type="text" onChange={handleChange}/>
-        <input placeholder="password" value={loginData.password} name="password" type="password" onChange={handleChange}/>
-        <input type ="submit" value = "Log In"/>
+        <input className="form__input" placeholder="username" value={loginData.username} name="username" type="text" onChange={handleChange}/>
+        <input className="form__input" placeholder="password" value={loginData.password} name="password" type="password" onChange={handleChange}/>
+        <input className = "form__submit" type ="submit" value = "Log In"/>
       </form>
     </Jumbotron>
   )

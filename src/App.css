@@ -117,7 +117,7 @@ div.col-md-3.card.text-black a:hover {
   color: white;
   position: relative;
   padding: 7rem;
-
+  clear: both;
 
 }
 
@@ -154,15 +154,22 @@ div.col-md-3.card.text-black a:hover {
   left: 0;
   width: 100%;
 
+}
 
+.jumbotron .form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 
 }
 
 
 .btn,
 .jumbotron a.active.btn.btn-primary,
+#root > div > div:nth-child(2) > form > input[type=submit]:nth-child(3),
+#root > div > div:nth-child(2) > form > input.form__submit,
 .btn:active,
-.jumbotron a.active.btn.btn-primary:active{
+.jumbotron a.active.btn.btn-primary:active {
   background-color: #47981F;
   color: #B5BFD3;
   margin: 1rem 1rem 1rem 1rem;
@@ -170,8 +177,16 @@ div.col-md-3.card.text-black a:hover {
 }
 
 .btn:hover,
-.jumbotron a.active.btn.btn-primary:hover {
+.jumbotron a.active.btn.btn-primary:hover,
+#root > div > div:nth-child(2) > form > input[type=submit]:nth-child(3):hover,
+ #root > div > div:nth-child(2) > form > input.form__submit:hover {
   background-color: #B5BFD3 ;
   font-weight: bold;
   color: #47981F;
+}
+
+#root > div > div:nth-child(2) > form > input {
+    display: block;
+    margin: 1rem;
+    background: #272C2F;
 }
