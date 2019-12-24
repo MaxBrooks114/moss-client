@@ -1,17 +1,5 @@
-html {
-  font: 'Baloo Bhai';
-}
 
 
-.App {
-  text-align: left;
-  font: 'Baloo Bhai';
-
-}
-
-.App a {
-  font: gray;
-}
 
 .App-logo {
   height: 40vmin;
@@ -55,9 +43,9 @@ div .mr-auto .navbar-nav .navpills a.nav-link {
   background: #47981F;
   opacity: .5;
 }
+
 div .row {
       text-align: left;
-
       justify-content: space-evenly;
       position: relative;
       top: 4rem;
@@ -72,6 +60,31 @@ div.col-md-3.card.text-black {
   box-shadow: 2px 2px 2px 2px rgba(149,164,177,0.2);
 
 
+
+}
+
+div.col-md-3.card.text-black .card-body {
+  position: relative;
+}
+
+div.col-md-3.card.text-black .card-body .card-title {
+  margin-bottom: 3rem;
+}
+
+div.col-md-3.card.text-black .card-body a {
+  background: #9CF632;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+
+}
+
+div.col-md-3.card.text-black a:hover {
+  background: #B5BFD3;
+  color: #9CF632;
+  clear: both;
 }
 
 .search__form {
@@ -107,6 +120,12 @@ div.col-md-3.card.text-black {
 
 
 }
+
+.concert-pic {
+  position:absolute;
+  right: 0;
+}
+
 .jumbotron .badge {
   position: absolute;
   top:1rem;
