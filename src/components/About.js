@@ -1,11 +1,13 @@
 import React from 'react'
 import Jumbotron  from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image'
 import { LinkContainer } from 'react-router-bootstrap';
 
 const About = () => (
   <Jumbotron>
     <h1>A rolling stone gathers no Moss</h1>
+    <Image className="concert-pic" src="andrew-gaines-Yz2n1NX2TFI-unsplash.jpg"  />
     <p>Moss is a web application that seeks to answer one question: Is this band good live? Using crowd sourced reviews and the BandsinTown API, we can start to build a database of reviews to uncover trends about bands, and venues. The simple review system just asks for 5 metrics:</p>
      <ol>
         <li> The performance: how was the show overall? </li>
