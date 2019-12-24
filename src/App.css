@@ -94,8 +94,8 @@ div.col-md-3.card.text-black a:hover {
 
 #root > div > div > form > button {
   position: absolute;
-  left: 0;
-  margin:0 1rem 0 0;
+  left: 1rem;
+  margin:0 0 0 0;
 
 }
 
