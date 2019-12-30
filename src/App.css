@@ -1,6 +1,4 @@
 
-
-
 .App-logo {
   height: 40vmin;
 }
@@ -20,60 +18,73 @@
   color: white;
 }
 
+ nav {
+  background-color: #272C2F;
 
-div .mr-auto .navbar-nav .navpills a.nav-link {
-  color: white;
+
 }
 
-.nav-pill {
-  color: white;
+.btn.btn-primary:hover {
+  border-color: #162B27;
+
 }
+
+.logo {
+  background-color:#47981F;
+  color: white;
+  padding: 1rem;
+  cursor: pointer
+}
+
 
 .nav-pills .nav-link.active {
 
     background-color:#47981F;
     color: white;
-    }
 
-#root > div > nav > div.mr-auto.navbar-nav.nav-pills > a {
+  }
+
+
+
+
+.mr-auto.navbar-nav.nav-pills > a {
   color: white;
+  margin: 1rem;
 }
 
-#root > div > nav > div.mr-auto.navbar-nav.nav-pills > a:hover {
+.mr-auto.navbar-nav.nav-pills > a:hover {
   background: #47981F;
   opacity: .5;
 }
 
-div .row {
+.row {
       text-align: left;
       justify-content: space-evenly;
       position: relative;
       top: 4rem;
       border-radius: .25rem;
-
     }
 
-div.col-md-3.card.text-black {
+.col-md-3.card {
   background-color:#1C4F06;
   color:white;
   margin: 1rem;
   box-shadow: 2px 2px 2px 2px rgba(149,164,177,0.2);
 
-
-
 }
 
-div.col-md-3.card.text-black .card-body {
+.col-md-3.card .card-body {
   position: relative;
 }
 
-div.col-md-3.card.text-black .card-body .card-title {
+.col-md-3.card .card-body .card-title {
   margin-bottom: 3rem;
 }
 
-div.col-md-3.card.text-black .card-body a {
+
+div.col-md-3.card .card-body a {
   background: #9CF632;
-  color: white;
+  color: #162B27;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -81,36 +92,64 @@ div.col-md-3.card.text-black .card-body a {
 
 }
 
-div.col-md-3.card.text-black a:hover {
-  background: #B5BFD3;
+div.col-md-3.card a:hover {
+  background: #162B27;
   color: #9CF632;
-  clear: both;
+  border-color: #162B27;
+}
+
+.concerts-container {
+  position: relative;
+  height: 100%;
 }
 
 .search__form {
   position: relative;
+  
 }
 
-
-#root > div > div > form > button {
+.search-button {
   position: absolute;
-  left: 1rem;
-  margin:0 0 0 0;
+  top: 1.5rem;
+}
+
+.search-button:hover,
+.search-button:active,
+.search-button:focus
+ {
+  border-color: #162B27;
+  outline: none !important;
+  box-shadow: none;
 
 }
 
-#root > div > div > button {
-  position: relative;
-  left: 143px;
-  bottom: 1rem;
-}
-
-#root > div > div > button > span {
+.loading-bar {
   position: absolute;
-  top: .5rem;
-  margin-right: 2rem;
-  left: 0;
+  height: 10rem;
+  width: 100%;
+  top: 4rem;
+  background-color: #9CF632 !important;
+  color:  #162B27 !important;
+  box-shadow: none !important;
+  border-color: #9CF632 !important;
+  outline: none !important;
+  opacity: inherit;
+  
 }
+
+.loading-bar:hover,
+.loading-bar:active,
+.loading-bar:focus
+ {
+  background-color: #9CF632 !important;
+  color: #162B27;
+  border-color: #9CF632;
+  outline: none !important;
+  box-shadow: none ;
+}
+
+
+
 
 .jumbotron {
   background: black;
@@ -171,7 +210,7 @@ div.col-md-3.card.text-black a:hover {
 .btn:active,
 .jumbotron a.active.btn.btn-primary:active {
   background-color: #47981F;
-  color: #B5BFD3;
+  color: #272C2F;
   margin: 1rem 1rem 1rem 1rem;
   border-color: #47981F;
 }
@@ -180,13 +219,36 @@ div.col-md-3.card.text-black a:hover {
 .jumbotron a.active.btn.btn-primary:hover,
 #root > div > div:nth-child(2) > form > input[type=submit]:nth-child(3):hover,
  #root > div > div:nth-child(2) > form > input.form__submit:hover {
-  background-color: #B5BFD3 ;
+  background-color: #272C2F ;
   font-weight: bold;
-  color: #47981F;
+  color: #47981F !important;
 }
 
-#root > div > div:nth-child(2) > form > input {
+#root > div > div:nth-child(2) > form > input,
+#root > div > div:nth-child(2) > form > input:focus
+ {
     display: block;
     margin: 1rem;
     background: #272C2F;
+    color: #B5BFD3 !important;
 }
+
+#root > div > div {
+    position: relative;
+}
+
+
+#root > div > div > div > div.list-group > div {
+    background-color: #272C2F;
+    color: #47981F 
+}
+
+
+#root > div > div > form > textarea {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
