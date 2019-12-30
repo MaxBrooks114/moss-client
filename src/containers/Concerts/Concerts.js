@@ -13,7 +13,7 @@ const Concerts = ({concerts, isLoading, artist}) => {
       <Container className="concerts-container">
         <ConcertSearchFormWrapper />
         {isLoading  ?
-          <Button variant="secondary" disabled>
+          <Button className="loading-bar" disabled>
             <Spinner
               as="span"
               animation="grow"

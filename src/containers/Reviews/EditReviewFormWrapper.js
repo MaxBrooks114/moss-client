@@ -35,10 +35,10 @@ class EditReviewFormWrapper extends React.Component {
 
     return (
       currentUserId == userId ?
-        <Card bg="secondary" text="black">
+        <Card>
               <ReviewForm editMode handleSubmit={this.handleSubmit} />
               <br/>
-              <Button variant="danger" onClick={()=>deleteReview(reviewId, history, concertId, userId)}>Delete this review</Button>
+              <Button onClick={()=>deleteReview(reviewId, history, concertId, userId)}>Delete this review</Button>
         </Card> : <Card> <Card.Title>This is not your review to edit!</Card.Title></Card>
     )
   }

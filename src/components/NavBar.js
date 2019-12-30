@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Logout from './Logout'
 import {Nav }from 'react-bootstrap'
 import {Navbar} from 'react-bootstrap';
-import Button from 'react-bootstrap/Button'
+import Badge from 'react-bootstrap/Badge'
 import { LinkContainer } from 'react-router-bootstrap';
 
 import { getUserReviews, getReviews } from '../actions/reviews/reviews'
@@ -15,13 +15,13 @@ const NavBar = ({ currentUser, loggedIn, getUserReviews, getReviews }) => {
 
   return (
     <>
-      <Navbar sticky="top" bg="dark" >
+      <Navbar sticky="top"  >
         <Navbar.Brand>
          <h1>
           <LinkContainer to={'/about'}>
-            <Button variant="success">
+            <Badge className="logo" >
                 Moss
-            </Button>
+            </Badge>
           </LinkContainer>
          </h1>
           </Navbar.Brand>

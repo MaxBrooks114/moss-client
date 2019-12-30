@@ -20,12 +20,12 @@ const ReviewsList = ({reviews}) => {
 
       <div className ='row'>
       {reviews.map(r =>
-        <Card key={r.id} className="col-md-3" text="black">
+        <Card key={r.id} className="col-md-3" >
           <Card.Body>
             <Card.Title>{capitalize(r.attributes.user.username)}'s review of {r.attributes.concert.name}</Card.Title>
-            <Card.Text>Final Score: {r.attributes.final_score}</Card.Text>
+            <Card.Text>Final Score: {r.attributes.final_score}</Card.Text><br/>
             <LinkContainer to={`/reviews/${r.id}`}>
-              <Button variant="success">See This Review</Button>
+              <Button>See This Review</Button>
             </LinkContainer>
           </Card.Body>
         </Card>)}

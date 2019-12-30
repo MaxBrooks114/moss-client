@@ -19,7 +19,7 @@ const ConcertSearchForm = ({ artist, updateConcertSearchForm, handleSubmit}) => 
       handleSubmit(artist)
     }}>
       <input className='form-control' placeholder="Enter an artist here to see their past concerts" type="text" name="artist" value={ artist } onChange={ handleChange }/>
-      <Button variant="success" className="search-button" type="submit">Search Concerts</Button>
+      <Button className="search-button" type="submit">Search Concerts</Button>
     </form>
   )
 }

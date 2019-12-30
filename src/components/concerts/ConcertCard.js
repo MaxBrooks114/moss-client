@@ -13,25 +13,25 @@ const ConcertCard = ({concert, currentUserId}) => {
 
     return (
       concert && concert.attributes ?
-          <Card bg="secondary" text="black">
+          <Card className = "concert-card">
             <Card.Body>
               <Card.Text>Date: {concert.attributes.date}</Card.Text>
               <Card.Text>Artist: {concert.attributes.artist}</Card.Text>
               <Card.Text>Venue: {concert.attributes.venue}</Card.Text>
               <Card.Text>Aggregated Score: {concert.attributes.combined_review_score}</Card.Text>
               <LinkContainer to={`/concerts/${concert.id}/reviews`} >
-                <Button variant="success">See all reviews for this concert</Button>
+                <Button>See all reviews for this concert</Button>
               </LinkContainer>
               {!!concert.attributes.reviews.find(review => review.user_id == currentUserId) ?
                 <LinkContainer to ={`/reviews/${concert.attributes.reviews.find(review => review.user_id == currentUserId).id}`}>
-                    <Button variant="success">Your Review</Button>
+                    <Button>Your Review</Button>
                 </LinkContainer> :
                 <LinkContainer to ={`/concerts/${concert.id}/reviews/new`}>
-                 <Button variant="success">Add a Review</Button>
+                 <Button>Add a Review</Button>
                 </LinkContainer> }
             </Card.Body>
           </Card>
-          : <Card bg="secondary" text="black"> Concert not found </Card>
+          : <Card> Concert not found </Card>
 
       )
 

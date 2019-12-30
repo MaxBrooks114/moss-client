@@ -13,7 +13,7 @@ const NewReviewFormWrapper = ({ history, createReview }) => {
     }, history)
   }
   return (
-      <Card bg="secondary" text="black">
+      <Card>
         <ReviewForm history={history} handleSubmit={handleSubmit} />
       </Card>
 

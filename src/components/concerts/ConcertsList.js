@@ -19,11 +19,11 @@ const ConcertsList = ({concerts, saveConcert}) => {
             <div className ='row'>
               {concerts.sort((a, b) => (a.datetime < b.datetime) ? 1 : -1).map(
                 c =>
-                  <Card key={c.id} className="col-md-3" text="black">
+                  <Card key={c.id} className="col-md-3">
                     <Card.Body>
                       <Card.Title>{c.lineup[0]} @ {c.venue.name} on {date(c.datetime)}</Card.Title>
                       <LinkContainer to={`/concerts/${c.id}`} onClick={()=>saveConcert(c)}>
-                        <Button variant="success">See This Concert</Button>
+                        <Button>See This Concert</Button>
                       </LinkContainer>
                     </Card.Body>
                   </Card>)}
