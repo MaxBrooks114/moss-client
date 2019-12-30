@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+
 body {
   margin: 0;
-  font-family:'Concert one';
+  font-family:'Cabin';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('A1rZSHSdG1L._AC_SL1500_.jpg');
