@@ -7,11 +7,14 @@ import Login  from './components/Login'
 import Signup from './components/Signup'
 import Home from './components/Home'
 import About from './components/About'
+import UserProfile from './components/UserProfile'
 import NewReviewFormWrapper from './containers/Reviews/NewReviewFormWrapper'
 import EditReviewFormWrapper from './containers/Reviews/EditReviewFormWrapper'
 import ConcertFetcher from './containers/Concerts/ConcertFetcher'
 import Concerts from './containers/Concerts/Concerts'
-import Reviews from './containers/Reviews/Reviews'
+import AllReviewsList from './containers/Reviews/AllReviewsList'
+import UserReviewsList from './containers/Reviews/UserReviewsList'
+import ConcertReviewsList from './containers/Reviews/ConcertReviewsList'
 import ReviewContainer from './containers/Reviews/ReviewContainer'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
@@ -35,16 +38,18 @@ class App extends React.Component {
           <Route exact path='/login' component={Login}/>
           <Route exact path='/concerts' component={Concerts}/>
           <Route exact path='/concerts/:id' component={ConcertFetcher}/>
+          <Route exact path='/reviews' component={AllReviewsList}/>
+          <Route exact path='/concerts/:id/reviews' component={ConcertReviewsList}/>
+          <Route exact path='/users/:id/reviews' component={UserReviewsList}/>
           <Route exact path='/reviews/:id' component={ReviewContainer}/>
           <Route exact path='/concerts/:id/reviews/new' component={NewReviewFormWrapper}/>
-          <Route exact path='/concerts/:id/reviews' component={Reviews}/>
+     
           <Route exact path='/reviews/:id/edit' render={props => {
              const review = reviews.find(review => review.id === props.match.params.id)
              return <EditReviewFormWrapper review={review} {...props}/>
            }
          }/>
-         <Route exact path='/reviews' component={Reviews}/>
-         <Route exact path='/users/:id/reviews' component={Reviews}/>
+         <Route exact path='/users/:id' render={(props) => ( <UserProfile {...props}/>)}/>
         </Switch>
 
       </div>
